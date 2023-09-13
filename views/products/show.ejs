@@ -1,0 +1,28 @@
+<% layout('layout/boilerPlate') %>
+   
+
+    <h1 class="text-center mt-5 mb-3   "><%= product.name %></h1>
+    <h4 class="text-center mb-2">Price: Rs <%= product.price %> </h4>
+    <h4 class="text-center mb-4">Category: <%= product.category %> </h4>
+    <h4 class="text-center mb-4">Farm: <%= product.farm.name %> </h4>
+        
+        
+    
+
+    
+    <div class="container text-center  ">
+        <!-- <a class="btn btn-primary me-2" href="/products/<%= product._id %>/edit">Edit Product</a> -->
+        <a class="btn btn-primary me-2" href="/products/<%= product._id %>/edit">Edit Product</a>
+
+        <form class="d-inline" action="/products/<%=product._id%>?_method=Delete" method="post">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+
+   
+    
+    <!-- <form action="/products/<%=product._id%>?_method=Delete" method="post">
+        <button>Delete</button>
+    </form> -->
+    
+    

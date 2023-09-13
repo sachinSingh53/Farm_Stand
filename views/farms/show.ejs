@@ -1,0 +1,71 @@
+<% layout('layout/boilerPlate') %>
+   
+<div class="row">
+        <div class="col-6 offset-3" >
+            <h1 class="display-6 text-center  mb-3 text-danger"><%= farm.name %></h1>
+            <h5 class="text-center mb-2">City: <%= farm.city %> </h5>
+            <h5 class=" text-center mb-4">Email: <%= farm.email %> </h5>
+        </div>
+    
+        <div class="col-6 offset-3 mb-3">
+            <h2 class="text-center">Products</h2>
+            <ol class="list-group list-group-numbered ">
+                <% for(let product of farm.products){ %>
+                    <li class="list-group-item text-center"><a href="/products/<%= product._id %>"><%= product.name %></a></li>
+                    <% } %>
+            </ol>
+              
+        </div>
+
+        <!-- <div class="col d-flex justify-content-center text-center">
+
+        
+            <!-- <div class="card" style="width: 35rem;">
+                <div class="card-header">
+                <h1>Products</h1>
+                <span>
+                    
+                </span>
+                
+                </div>
+                <ul class="list-group list-group-flush">
+                    <% for(let product of farm.products){ %>
+                        <li class="list-group-item"> <a href="/farms/<%= farm._id %>" class="  list-group-item list-group-item-action list-group-item-success  "><%= farm.name %></a></li>
+                    <% } %>
+    
+                </ul>
+                <a href="/farms/new"><button type="button" class="btn btn-dark mt-2 mb-2 ">ADD</button></a>
+                <a class="btn btn-primary me-2" href="/farms/<%= farm._id %>/edit">Edit Farm</a>
+                <a class="btn btn-primary me-2" href="/farms/<%= farm._id %>/products/new">Add New Product</a>
+            </div>
+    
+        
+        
+        </div> -->
+
+    
+            
+    <% if(currentUser&&farm.author.equals(currentUser._id)){ %>
+        <div class=" col-6 offset-3 mb-3 container text-center  ">
+            <a class="btn btn-dark  me-2" href="/farms/<%= farm._id %>/edit">Edit Farm</a>
+            <a class="btn btn-primary me-2" href="/farms/<%= farm._id %>/products/new">Add New Product</a>
+
+            <form class="d-inline" action="/farms/<%=farm._id%>?_method=Delete" method="post">
+            <button class="btn btn-danger">Delete Farm</button>
+
+
+        </form>
+        </div>
+    <% } %>
+        
+    </div>
+
+    
+
+   
+    
+    <!-- <form action="/products/<%=farm._id%>?_method=Delete" method="post">
+        <button>Delete</button>
+    </form> -->
+    
+    

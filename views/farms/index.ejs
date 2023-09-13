@@ -1,0 +1,26 @@
+<% layout('layout/boilerPlate') %>
+
+
+    <div class="col d-flex justify-content-center text-center">
+
+
+        <div class="card" style="width: 35rem;">
+            <div class="card-header">
+            <h1>All Farms</h1>
+            <span>
+                
+            </span>
+            
+            </div>
+            <ul class="list-group list-group-flush">
+                <% for(let farm of farms){ %>
+                    <li class="list-group-item"> <a href="/farms/<%= farm._id %>" class="  list-group-item list-group-item-action list-group-item-info  "><%= farm.name %></a></li>
+                <% } %>
+
+            </ul>
+            <a href="/farms/new"><button type="button" class="btn btn-dark mt-2 mb-2 ">ADD</button></a>
+        </div>
+
+    
+    
+    </div>
