@@ -4,6 +4,7 @@ const {isLoggedIn} = require('../middleware');
 
 const Product = require('../models/product');
 
+
 router.get('/',async(req,res)=>{
     const products=await Product.find({})
     
