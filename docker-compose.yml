@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 2717:27017
+    volumes:
+      - mongo_db:/data/db
+
+  api:
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/user/src/app
+    environment:
+      DB_URL: mongodb+srv://sachin_53:68sXWPJfQ4iHkXg6@cluster0.nvfkv8t.mongodb.net/?retryWrites=true&w=majority
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}
